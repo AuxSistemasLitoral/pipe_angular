@@ -1,0 +1,74 @@
+<!-- Un panel con un título -->
+<p-panel header="Pipes Básicos" class="p-1">
+  <p>
+    Pipes incluidos en Angular - Usualmente en el Common Module
+  </p>
+</p-panel>
+
+<!-- Contenedor de elementos en una cuadrícula -->
+<div class="grid">
+
+  <!-- Primer columna: Uppercase Pipe -->
+  <div class="col-12 md:col-4">
+    <p-card header="uppercase">
+      {{ nameLower | uppercase }}
+    </p-card>
+  </div>
+
+  <!-- Segunda columna: Lowercase Pipe -->
+  <div class="col-12 md:col-4">
+    <p-card header="lowercase">
+      {{ nameUpper | lowercase }}
+    </p-card>
+  </div>
+
+  <!-- Tercera columna: Titlecase Pipe -->
+  <div class="col-12 md:col-4">
+    <p-card header="titlecase">
+      {{ fullName | titlecase }}
+    </p-card>
+  </div>
+
+  <!-- Cuarta columna: Date Pipe -->
+  <div class="col-12 md:col-6">
+    <p-card header="titlecase">
+      <!-- Ejemplos de uso del Date Pipe -->
+      <ol>
+        <li>Fecha</li>
+        <li>{{ custumDate }}</li>
+        <li>{{ custumDate | date }}</li>
+        <li>{{ custumDate | date: 'short' }}</li>
+        <li>{{ custumDate | date: 'long' }}</li>
+        <li>{{ custumDate | date: 'LLLL' }}</li>
+        <li>{{ custumDate | date: 'LLLL dd, yyyy' }}</li>
+        <li>{{ custumDate | date: 'EEEE, MMMM d, y' }}</li>
+      </ol>
+
+      <hr>
+
+      <!-- Ejemplos adicionales del Date Pipe con zonas horarias y locales -->
+      <ol>
+        <li>{{ custumDate | date: 'long': 'GMT-6' }}</li>
+        <li>{{ custumDate | date: 'long': 'GMT-4' }}</li>
+        <li>{{ custumDate | date: 'long': '': 'es-CO' }}</li>
+        <li>{{ custumDate | date: 'long': '': 'FR' }}</li>
+        <li>{{ custumDate | date: 'long': '': 'en-US' }}</li>
+      </ol>
+
+    </p-card>
+  </div>
+
+  <!-- Quinta columna: Date Pipe (segunda instancia) -->
+  <div class="col-12 md:col-6">
+    <p-card header="titlecase">
+      <!-- Ejemplos adicionales del Date Pipe con zonas horarias y locales -->
+      <ol>
+        <li>{{ custumDate | date: 'long': 'GMT-5' }}</li>
+        <li>{{ custumDate | date: 'long': 'GMT-4' }}</li>
+        <li>{{ custumDate | date: 'long': '': 'es-CO' }}</li>
+        <li>{{ custumDate | date: 'long': '': 'FR' }}</li>
+        <li>{{ custumDate | date: 'long': '': 'en-US' }}</li>
+      </ol>
+    </p-card>
+  </div>
+</div>

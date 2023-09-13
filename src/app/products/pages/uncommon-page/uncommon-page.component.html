@@ -1,0 +1,98 @@
+<!-- Un panel con un título -->
+<p-panel header="Pipes no tan comunes" class="p-1">
+  <p>
+    Pipes incluidos en Angular - Usualmente en Common Module
+  </p>
+</p-panel>
+
+<!-- Contenedor de elementos en una cuadrícula -->
+<div class="grid">
+
+  <!-- Primer cuadro con la tubería 'i18nSelect' -->
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+      <p>
+        Saludos {{ name }}, es un placer
+        {{ gender | i18nSelect: invitationMap  }}
+        a nuestro evento.
+      </p>
+      <p-button
+        (click)="changeCliente()"
+        label="Cambiar persona"
+      ></p-button>
+    </p-fieldset>
+  </div>
+
+  <!-- Segundo cuadro con la tubería 'i18nPlural' -->
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <p>
+        Actualmente {{ clients.length | i18nPlural: clientsMap }} por atención
+      </p>
+      <p-button
+        (click)="deletedClient()"
+        label="Siguiente Turno">
+      </p-button>
+    </p-fieldset>
+  </div>
+
+  <!-- Tercer cuadro con la tubería 'slice' -->
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{ clients }}</pre>
+
+      <!-- Ejemplos de uso de la tubería 'slice' para cortar un array -->
+      <b>corte de array en posición slice:1:2</b>
+      <pre>{{ clients | slice:1:2 }}</pre>
+
+      <b>corte de array en posición slice:3:4</b>
+      <pre>{{ clients | slice:3:4 }}</pre>
+
+      <b>corte de array en posición slice:0:2</b>
+      <pre>{{ clients | slice:0:2 }}</pre>
+
+      <b>corte de array en posición slice:1:3</b>
+      <pre>{{ clients | slice:1:3 }}</pre>
+
+      <b>Elimina la última posición slice:1:-1</b>
+      <pre>{{ clients | slice:1:-1 }}</pre>
+
+      <b>Elimina las dos últimas posiciones slice:1:-2</b>
+      <pre>{{ clients | slice:1:-2 }}</pre>
+
+    </p-fieldset>
+  </div>
+
+  <!-- Cuarto cuadro con la tubería 'json' -->
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Json Pipe" [toggleable]="true">
+      <pre>{{ person | json }}</pre>
+    </p-fieldset>
+  </div>
+
+  <!-- Quinto cuadro con la tubería 'keyvalue' -->
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+      <ul>
+        <!-- Itera a través de las propiedades clave-valor de 'person' utilizando la tubería 'keyvalue' -->
+        <li *ngFor="let item of person | keyvalue">
+          <b>{{ item.key | titlecase }}</b> {{ item.value }}
+        </li>
+      </ul>
+    </p-fieldset>
+  </div>
+
+  <!-- Sexto cuadro con la tubería 'async' -->
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+      <!-- Mostrar mensajes mientras se resuelven los observables y promesas -->
+      <pre *ngIf="!(myObsevableTimer | async)">Resolviendo observable</pre>
+      <pre>{{ myObsevableTimer | async }}</pre>
+
+      <pre *ngIf="!(promiseValue | async)">Resolviendo promesa</pre>
+      <pre>{{ promiseValue | async }}</pre>
+    </p-fieldset>
+  </div>
+
+</div>

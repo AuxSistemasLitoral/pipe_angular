@@ -1,0 +1,35 @@
+<!-- Un panel con un título -->
+<p-panel header="Pipes Numéricos" class="p-1">
+  <p>
+    Pipes incluidos en Angular - Usualmente en el Common Module
+  </p>
+</p-panel>
+
+<!-- Contenedor de elementos en una cuadrícula -->
+<div class="grid">
+
+  <!-- Primera columna: Uso de la tubería 'number' -->
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Netas" subheader="del presente año">
+      <!-- Ejemplo de uso de la tubería 'number' para formatear un número con 2 decimales y separadores de miles -->
+      {{ totalSells + 5161 | number:'1.2-2' }}
+    </p-card>
+  </div>
+
+  <!-- Segunda columna: Uso de la tubería 'currency' -->
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Brutas" subheader="del presente año">
+      <!-- Ejemplo de uso de la tubería 'currency' para formatear una cantidad de dinero en moneda local (HNL) con 6 decimales -->
+      {{ totalSells | currency: 'HNL': 'symbol-narrow': '1.6-6' }}
+    </p-card>
+  </div>
+
+  <!-- Tercera columna: Uso de la tubería 'percent' -->
+  <div class="col-12 md:col-4">
+    <p-card header="Ganancia porcentual" subheader="del presente año">
+      <!-- Ejemplo de uso de la tubería 'percent' para formatear un número como porcentaje con 2 decimales -->
+      {{ percent | percent: '1.2-2' }}
+    </p-card>
+  </div>
+
+</div>
